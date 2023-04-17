@@ -1,1 +1,235 @@
 @import '../node_modules/mini.css/dist/mini-nord.min.css';
+
+html,
+body,
+#root,
+.container,
+.center-page {
+  height: 100%;
+}
+
+html, body {
+  background-image: linear-gradient(to bottom, #e7e7e7, #acacac);
+}
+
+.container {
+  min-width: 800px;
+  width: 35vw;
+  margin: 0 auto;
+}
+
+/* Header */ 
+
+.pageHeader {
+  text-align: center;
+  color: black;
+  padding: 10px 0;
+  font-weight: 500;
+}
+
+/* Add */
+
+.addButton {
+  background-color: #e741a2;
+  color: white;
+  padding: 5px 10px;
+}
+
+.addForm {
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.addForm>input {
+  flex: 0 0 75%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px !important;
+  background-color: white;
+  margin: 0;
+  margin-right: 5%;
+}
+
+.addForm>button {
+  flex: 0 0 20%;
+  margin: 0;
+}
+
+.addForm>button:hover, .addForm>button:focus {
+  background-color: #e478b7;
+}
+
+.addForm>.addError, .editForm>.editError {
+  flex: 0 0 100%;
+  margin: 0;
+  width: 100%;
+  color: red;
+}
+
+.editForm>.editError>p {
+  margin: 0 10px;
+}
+
+.editForm>.editError:last-child>p {
+  margin: 0 10px 10px 10px;
+}
+
+.pageError {
+  margin: 0;
+  width: 100%;
+  color: red;
+}
+
+/* TodoItem */
+
+.todoRow{
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
+  margin: 8px 0;
+  /* round corners of element */
+  border-radius: 8px;
+  background-color:  #fefefe;
+  /* box-shadow: 0 0 2px 0 rgba(245, 245, 245, 1); */
+  /* height: 30px; */
+  min-height: 65px;
+}
+
+.itemName, .itemEditName {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  flex: 0 0 40%;
+  margin: 0;
+  /* background-color: lightblue; */
+}
+
+.itemName>div {
+  padding: 15px 0 15px 20px;
+}
+
+.itemPriority, .itemEditPriority {
+  flex: 0 0 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  /* background-color: lightgreen; */
+}
+
+.todoRow > div:nth-child(3), .itemEditStatus {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  /* background-color: lightpink; */
+}
+
+.itemEdit, .itemDelete, .itemEditSave, .itemEditCancel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.itemEdit, .itemEditSave {
+  margin-left: 5%;
+  flex: 0 0 10%;
+}
+
+.itemDelete, .itemEditCancel {
+  flex: 0 0 15%;
+}
+
+.itemEdit>button, .itemEditSave>button {
+  background-color: #e741a2;
+  color: white;
+  padding: 10px 15px;
+}
+
+.itemDelete>button, .itemEditCancel>button {
+  background-color: #ff5959;
+  color: white;
+  padding: 10px 15px;
+}
+
+.itemDelete>button:disabled {
+  background-color: lightgray;
+}
+
+.itemDelete>button:disabled:hover {
+  background-color: gray;
+}
+
+.itemEdit>button:hover, .itemEditSave>button:hover {
+  background-color: #e478b7;
+}
+
+.itemDelete>button:hover, .itemEditCancel>button:hover {
+  background-color: #e68b8b;
+}
+
+.NotStarted {
+  background-color: #e8e8e4;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+.InProgress {
+  background-color: #ffb3c1aa;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+.Completed {  
+  background-color: #f4978eaa;
+  border-radius: 10px;
+  padding: 0px 10px;
+}
+
+/* Edit item */
+
+.editForm {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.editForm input, .editForm select {
+  width: 100%;
+  margin: 0px 10px;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+
+.center-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* reset styles on button */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  color: black;
+  border-radius: 8px !important;
+  padding: 0px 5px;
+  margin: 0;
+}

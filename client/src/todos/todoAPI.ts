@@ -1,4 +1,4 @@
-import { Todo } from "./todo";
+import { Todo, TodoItemStatus } from "./todo";
 
 const baseUrl = "https://localhost:7268";
 const url = `${baseUrl}/api/TodoItems`;
@@ -40,7 +40,22 @@ function convertToTodoItems(data: any[]): Todo[] {
 }
 
 function convertToTodoItemModel(itemData: any) {
+  if (itemData.status)
+    itemData.status = convertNumberToTodoItemStatus(itemData.status);
   return new Todo(itemData);
+}
+
+function convertNumberToTodoItemStatus(statusNumber: number) {
+  switch (statusNumber) {
+    case 0:
+      return TodoItemStatus.NotStarted;
+    case 1:
+      return TodoItemStatus.InProgress;
+    case 2:
+      return TodoItemStatus.Completed;
+    default:
+      throw new Error("Unsupported todo item status encountered.");
+  }
 }
 
 const todoAPI = {

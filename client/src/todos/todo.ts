@@ -1,7 +1,7 @@
 export enum TodoItemStatus {
-  NotStarted,
-  InProgress,
-  Completed,
+  NotStarted = "NotStarted",
+  InProgress = "InProgress",
+  Completed = "Completed",
 }
 
 export class Todo {
@@ -18,6 +18,30 @@ export class Todo {
     if (initializer.status) this.status = initializer.status;
   }
 
+  GetTodoItemStatusString() {
+    switch (this.status) {
+      case TodoItemStatus.NotStarted:
+        return "Not Started";
+      case TodoItemStatus.InProgress:
+        return "In Progress";
+      case TodoItemStatus.Completed:
+        return "Completed";
+      default:
+        return "Jsem truhlík!";
+    }
+  }
+
+  ConvertStatusToNumber(todoStatus: TodoItemStatus) {
+    switch (todoStatus) {
+      case TodoItemStatus.NotStarted:
+        return 0;
+      case TodoItemStatus.InProgress:
+        return 1;
+      case TodoItemStatus.Completed:
+        return 2;
+    }
+  }
+
   /** Explicit to JSON conversion required for proper handling of the enum field value. */
   toJSON(): {
     name: string;
@@ -29,7 +53,7 @@ export class Todo {
       name: this.name,
       id: this.id,
       priority: this.priority,
-      status: Number(this.status),
+      status: this.ConvertStatusToNumber(this.status),
     };
   }
 }
