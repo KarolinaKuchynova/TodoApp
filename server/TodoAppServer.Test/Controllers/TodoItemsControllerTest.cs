@@ -89,7 +89,7 @@ namespace TodoAppServer.Test.Controllers
 
             Assert.Null(result.Value);
             Assert.NotNull(result.Result);
-            Assert.IsInstanceOf<UnprocessableEntityObjectResult>(result.Result); ((UnprocessableEntityObjectResult)(result.Result)).
+            Assert.IsInstanceOf<UnprocessableEntityObjectResult>(result.Result);
 
             todoRepositoryMock.Verify(p => p.GetAllTodos(), Times.Once);
         }
