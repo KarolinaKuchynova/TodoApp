@@ -4,7 +4,7 @@ using TodoAppServer.Repositories;
 
 namespace TodoAppServer.Test.Repositories
 {
-    internal class TodoItemRepositoryTest
+    public class TodoItemRepositoryTest
     {
         [Test]
         public void TestGetTodoByIdReturnsCorrectTodoItem() {

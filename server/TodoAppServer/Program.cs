@@ -1,3 +1,4 @@
+using TodoAppServer.Repositories;
 
 namespace TodoAppServer
 {
@@ -7,10 +8,18 @@ namespace TodoAppServer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+            builder.Services.AddSingleton<ITodoItemRepository, TodoItemRepository>();
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddCors(options => {
+                options.AddPolicy("AllowLocalhost", builder =>
+                {
+                    builder.WithOrigins("http://localhost:3000")
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
 
             var app = builder.Build();
 
@@ -21,7 +30,7 @@ namespace TodoAppServer
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors("AllowLocalhost");
             app.UseAuthorization();
 
 
